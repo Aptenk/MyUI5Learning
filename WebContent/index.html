@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>UI5_Practice</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <script id="sap-ui-bootstrap" 
+    src='./resources/sap-ui-core.js' 
+    data-sap-ui-theme="sap_bluecrystal" 
+    data-sap-ui-libs="sap.m" 
+    data-sap-ui-compatVersion="edge" 
+    data-sap-ui-preload="async" 
+    data-sap-ui-resourceroots='{"sap.ui.practice": "./"}'></script>
+    <script>
+    sap.ui.getCore().attachInit(function() {
+    	new sap.m.Shell({
+        app :  new sap.ui.core.ComponentContainer({
+        name: "sap.ui.practice",
+        height : "100%"
+        /*in order to make use of the whole screen height. In application containers like the SAP Fiori launchpad this is done automatically.*/
+    })
+    	}).placeAt("content");;
+    });
+    </script>
+</head>
+
+<body class="sapUiBody" id="content">
+</body>
+
+</html>

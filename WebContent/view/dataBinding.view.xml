@@ -1,0 +1,77 @@
+<mvc:View controllerName="sap.ui.practice.view.dataBinding" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:form="sap.ui.layout.form">
+    <Page title="UI5_MyLearningDemo_DataBinding" showNavButton="true" navButtonPress="handleNavButtonPress">
+        <content>
+            <Panel>
+                <headerToolbar>
+                    <Toolbar>
+                        <Title text="TwoWay and OneWay" />
+                        <Button text="Change Binding Mode" width="20%" press="changeBindingMode" type="Emphasized" />
+                        <Text id='modeStatus' text='TwoWay Now' />
+                    </Toolbar>
+                </headerToolbar>
+                <HBox>
+                    <Label text="First Name" class="sapUiSmallMargin" />
+                    <Input value="{basic>/firstName}" valueLiveUpdate="true" enabled="{basic>/enabled}" />
+                    <Label text="Last Name" class="sapUiSmallMargin" />
+                    <Input value="{basic>/lastName}" valueLiveUpdate="true" enabled="{basic>/enabled}" />
+                    <CheckBox selected="{basic>/enabled}" text="Enabled" />
+                </HBox>
+            </Panel>
+            <Panel headerText="List Binding" class="sapUiResponsiveMargin" width="auto">
+                <content>
+                    <List headerText="Products Lists" items="{products>/Products}">
+                        <items>
+                            <ObjectListItem press="onItemPressed" type="Active" title="{products>ProductName}" number="{    parts: 
+                                                    [
+                                                        {path: 'products>UnitPrice'},
+                                                        {path: 'products>currencyCode'}
+                                                    ], 
+                                                type: 'sap.ui.model.type.Currency',
+                                                formatOptions: { showMeasure: false }
+                                            }" numberUnit="{products>currencyCode}">
+                                <attributes>
+                                    <ObjectAttribute text="{products>QuantityPerUnit}" />
+                                    <ObjectAttribute title="Current Stock Value" text="{  parts: [
+                                                                {path: 'products>UnitPrice'},
+                                                                {path: 'products>UnitsInStock'},
+                                                                {path: 'products>currencyCode'}
+                                                                ],
+                                                        formatter: 'sap.ui.practice.util.Formatter.formatStockValue' 
+                                                    }" />
+                                </attributes>
+                            </ObjectListItem>
+                        </items>
+                    </List>
+                </content>
+            </Panel>
+            <Panel id="productDetailsPanel" headerText="productDetails" width="auto">
+                <l:Grid defaultSpan="L4 M6 S12" containerQuery="true">
+                    <HBox>
+                        <Label text="ProductID:" class="sapUiSmallMargin" />
+                        <Input value="{products>ProductID}" />
+                    </HBox>
+                    <HBox>
+                        <Label class="sapUiSmallMargin" text="ProductName:" />
+                        <Input value="{products>ProductName}" />
+                    </HBox>
+                    <HBox>
+                        <Label class="sapUiSmallMargin" text="QuantityPerUnit:" />
+                        <Input value="{products>QuantityPerUnit}" />
+                    </HBox>
+                    <HBox>
+                        <Label class="sapUiSmallMargin" text="UnitPrice:" />
+                        <Input value="{products>UnitPrice}" />
+                    </HBox>
+                    <HBox>
+                        <Label class="sapUiSmallMargin" text="UnitsInStock:" />
+                        <Input value="{products>UnitsInStock}" />
+                    </HBox>
+                    <HBox>
+                        <Label class="sapUiSmallMargin" text="Discontinued:" />
+                        <CheckBox value="{products>Discontinued}" />
+                    </HBox>
+                </l:Grid>
+            </Panel>
+        </content>
+    </Page>
+</mvc:View>

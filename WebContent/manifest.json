@@ -1,0 +1,102 @@
+{
+    "_version": "1.32",
+    "sap.app": {
+        "_version": "1.32",
+        "id": "sap.ui.practice",
+        "type": "application",
+        "i18n": "i18n/i18n.properties",
+        "title": "appPractice",
+        "description": "practiceAllAPI",
+        "applicationVersion": {
+            "version": "1.0.0"
+        },
+        "ach": "CA-UI5-DOC"
+    },
+    "sap.ui": {
+        "_version": "1.32",
+        "technology": "UI5",
+        "deviceTypes": {
+            "desktop": true,
+            "tablet": true,
+            "phone": true
+        },
+        "supportedThemes": [
+            "sap_bluecrystal"
+        ]
+    },
+    "sap.ui5": {
+        "_version": "1.32",
+        "rootView": "sap.ui.practice.view.App",
+        "dependencies": {
+            "minUI5Version": "1.32",
+            "libs": {
+                "sap.m": {}
+            }
+        },
+        "models": {
+            "i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "settings": {
+                    "bundleName": "sap.ui.practice.i18n.i18n"
+                }
+            }
+        },
+        "routing": {
+            "config": {
+                "routerClass": "sap.m.routing.Router",
+                "viewType": "XML",
+                "viewPath": "sap.ui.practice.view",
+                "controlId": "app",
+                "controlAggregation": "pages"
+            },
+            "routes": [{
+                "pattern": "",
+                "name": "navView",
+                "target": "navView"
+            }, {
+                "pattern": "splitContainer",
+                "name": "splitContainer",
+                "target": "splitContainer"
+
+            }, {
+                "pattern": "dataBinding",
+                "name": "dataBinding",
+                "target": "dataBinding"
+            }, {
+                "pattern": "chartContainer",
+                "name": "chartContainer",
+                "target": "chartContainer"
+            }, {
+                "pattern": "layout",
+                "name": "layout",
+                "target": "layout"
+            }],
+            "targets": {
+                "navView": {
+                    "viewName": "navView"
+                },
+                "splitContainer": {
+                    "viewName": "splitContainer"
+                },
+                "dataBinding": {
+                    "viewName": "dataBinding"
+                },
+                "chartContainer": {
+                    "viewName": "chartContainer"
+                },
+                "layout": {
+                    "viewName": "layout"
+                }
+            }
+        },
+        "config": {
+            "dataLocal": "/data.json",
+            "invoiceRemote": "/destinations/northwind/V2/Northwind/Northwind.svc/"
+        },
+        "resources": {
+            "css": [{
+                "uri": "css/style.css"
+            }]
+        }
+    }
+}

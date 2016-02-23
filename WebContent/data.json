@@ -1,0 +1,27 @@
+{
+    "navComboBoxItems": [{
+        "type": "splitContainer"
+    }, {
+        "type": "layout"
+    }, {
+        "type": "chart"
+    }, {
+        "type": "dataBinding"
+    }],
+
+    "SupplierCollection": [{
+        "SupplierName": "AP",
+        "Street": "Center Street",
+        "HouseNumber": "8888",
+        "ZIPCode": "66666",
+        "City": "Shen Zhen",
+        "Country": "China",
+        "Url": "http://www.sap.com",
+        "Twitter": "@sap",
+        "Tel": "+49 888888",
+        "Sms": "+49 88888",
+        "Email": "p.pan@sap.com"
+    }]
+
+
+}

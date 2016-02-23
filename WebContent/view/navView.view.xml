@@ -1,0 +1,33 @@
+<mvc:View controllerName="sap.ui.practice.view.navView" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:form="sap.ui.layout.form">
+    <Page title="UI5_MyLearningDemo">
+        <VBox>
+            <l:Grid defaultSpan="L2 M3 S6" class="sapUiSmallMarginTop">
+                <l:content>
+                    <ComboBox id="navDestination" items="{path:'/navComboBoxItems',
+            	                     sorter:{path:'type'}}" placeholder="select the Type" width="100%">
+                        <core:Item text="{type}" />
+                    </ComboBox>
+                    <Button width="100%" text='navigation' icon="sap-icon://begin" type="Emphasized" press="navPress">
+                    </Button>
+                </l:content>
+            </l:Grid>
+            <l:Grid defaultSpan="L6 M6 S12" class="sapUiSmallMarginTop">
+                <l:content>
+                    <form:SimpleForm editable='false' layout="ResponsiveGridLayout" labelSpanL="4" labelSpanM="4" emptySpanL="4" emptySpanM="4">
+                        <form:content>
+                            <Label text="Name" ></Label>
+                            <Text text="Peter.Pan" ></Text>
+                        </form:content>
+                    </form:SimpleForm>
+                    <form:SimpleForm editable='false' layout="ResponsiveGridLayout" labelSpanL="4" labelSpanM="4" emptySpanL="4" emptySpanM="4">
+                        <form:content>
+                            <Label text="Email" ></Label>
+                            <Text text="P.Pan@sap.com"></Text>
+                        </form:content>
+                    </form:SimpleForm>
+                    <!-- Third / Half width items -->
+                </l:content>
+            </l:Grid>
+        </VBox>
+    </Page>
+</mvc:View>

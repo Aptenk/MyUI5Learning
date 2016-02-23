@@ -1,0 +1,90 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" controllerName="sap.ui.practice.view.splitContainer" xmlns="sap.m" xmlns:form="sap.ui.layout.form" xmlns:core="sap.ui.core">
+    <SplitContainer id='splitContainer' initialDetail="detailEmpty" initialMaster="master">
+        <masterPages>
+            <Page id="master" title="Sales Orders" icon="sap-icon://action" class="sapUiStdPage" showNavButton="true" navButtonPress="handleNavButtonPress">
+                <List items="{/}" headerText="Orders">
+                    <items>
+                        <ObjectListItem press="listItemPress" type="Active" title="{OrderID}" number="{
+                path:'Freight',
+                formatter:'sap.ui.practice.util.Formatter.price'    
+                }" numberUnit="EUR">
+                            <attributes>
+                                <ObjectAttribute text="{CustomerID}" />
+                            </attributes>
+                            <firstStatus>
+                                <ObjectStatus text="{ShipCountry}" />
+                            </firstStatus>
+                        </ObjectListItem>
+                    </items>
+                </List>
+            </Page>
+        </masterPages>
+        <detailPages>
+            <Page id="detailEmpty" title="Sale Order Detail">
+            </Page>
+            <Page id="detailOrder" title="Sale Order Detail">
+                <content>
+                    <ObjectHeader title="{OrderID}" number="{
+                path:'Freight',
+                formatter:'sap.ui.practice.util.Formatter.price'    
+                }" numberUnit="EUR">
+                    </ObjectHeader>
+                    <IconTabBar expanded="flase">
+                        <items>
+                            <IconTabFilter icon="sap-icon://org-chart" text="项目">
+                                <form:SimpleForm id="SupplierForm" minWidth="1024">
+                                    <core:Title text="Address" />
+                                    <Label text="ShipName" />
+                                    <Text text="{ShipName}" />
+                                    <Label text="ShipCity" />
+                                    <Text text="{ShipCity}, {ShipPostalCode}" />
+                                    <Label text="ShipAddress" />
+                                    <Text text="{ShipAddress}" />
+                                </form:SimpleForm>
+                            </IconTabFilter>
+                        </items>
+                    </IconTabBar>
+                    <Table id="productsTable" headerText="Products" items="{/}">
+                        <columns>
+                            <Column>
+                                <header>
+                                    <Label text="Product ID" />
+                                </header>
+                            </Column>
+                            <Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
+                                <header>
+                                    <Label text="Discount" />
+                                </header>
+                            </Column>
+                            <Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
+                                <header>
+                                    <Label text="Quantity" />
+                                </header>
+                            </Column>
+                            <Column hAlign="Right">
+                                <header>
+                                    <Label text="Price" />
+                                </header>
+                            </Column>
+                        </columns>
+                        <ColumnListItem type="Navigation" press="handleLineItemPress">
+                            <cells>
+                                <ObjectIdentifier title="{ProductID}" />
+                                <Text text="{
+                path:'Discount'}" />
+                                <Text text="{
+                path:'Quantity',
+                formatter:'sap.ui.practice.util.Formatter.quantity'    
+                }" />
+                                <ObjectNumber number="{
+                path:'UnitPrice',
+                formatter:'sap.ui.practice.util.Formatter.price'    
+                }" numberUnit="EUR" />
+                            </cells>
+                        </ColumnListItem>
+                    </Table>
+                </content>
+            </Page>
+        </detailPages>
+    </SplitContainer>
+</mvc:View>
