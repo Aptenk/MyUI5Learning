@@ -6,6 +6,7 @@ sap.ui.define([
 ], function(Controller, JSONModel) {
     //var tempData = new Array();
     "use strict";
+     sap.ui.core.BusyIndicator.hide();
     return Controller.extend("sap.ui.practice.view.navView", {
         onInit: function() {
             // var oConfig = this.getView().getMetadata().getConfig();

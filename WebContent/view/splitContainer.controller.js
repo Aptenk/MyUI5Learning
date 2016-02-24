@@ -37,7 +37,7 @@ sap.ui.define([
 
                 },
                 "error": function(error) {
-                    sap.m.MessageToast.show("读取失败！");
+                    sap.m.MessageToast.show("读取主数据失败！");
                 },
 
                 "async": false
@@ -77,7 +77,7 @@ sap.ui.define([
 
                 },
                 "error": function(error) {
-                    sap.m.MessageToast.show("读取失败！");
+                    sap.m.MessageToast.show("读取详细数据失败！");
                 },
 
                 "async": false
