@@ -2,6 +2,7 @@ sap.ui.define([
     "sap/ui/core/mvc/Controller"
 ], function(Controller) {
     "use strict";
+    sap.ui.core.BusyIndicator.hide();
     return Controller.extend("sap.ui.practice.view.chartContainer", {
         handleNavButtonPress: function() {
             var oRouter = sap.ui.core.UIComponent.getRouterFor(this);

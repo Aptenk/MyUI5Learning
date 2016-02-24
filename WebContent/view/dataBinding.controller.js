@@ -5,6 +5,7 @@ sap.ui.define([
 ], function(Controller, JSONModel) {
     //var tempData = new Array();
     "use strict";
+    sap.ui.core.BusyIndicator.hide();
     var oBasicModel = new sap.ui.model.json.JSONModel({
         firstName: "Peter",
         lastName: "Pan",

@@ -7,14 +7,12 @@ sap.ui.define([
 ], function(Controller) {
     var masterData = new Array();
     "use strict";
-
     sap.ui.core.BusyIndicator.show(0);
     return Controller.extend("sap.ui.practice.view.splitContainer", {
         onInit: function() {
             var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
             oRouter.getRoute("splitContainer").attachPatternMatched(this._onObjectMatched, this);
         },
-
         _onObjectMatched: function(oEvent) {
             var that = this.getView();
 

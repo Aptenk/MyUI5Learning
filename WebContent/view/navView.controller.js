@@ -6,7 +6,6 @@ sap.ui.define([
 ], function(Controller, JSONModel) {
     //var tempData = new Array();
     "use strict";
-     sap.ui.core.BusyIndicator.hide();
     return Controller.extend("sap.ui.practice.view.navView", {
         onInit: function() {
             // var oConfig = this.getView().getMetadata().getConfig();
@@ -14,26 +13,28 @@ sap.ui.define([
             this.getView().setModel(oHardCodeLocalModel);
         },
         navPress: function() {
+            sap.ui.core.BusyIndicator.show(0);
             var oView = this.getView();
             var oComboBox = oView.byId("navDestination");
             var oComboBoxInput = oComboBox.getValue();
-            var oRouter = sap.ui.core.UIComponent.getRouterFor(this);      
-            switch(oComboBoxInput){
+            var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+            switch (oComboBoxInput) {
                 case "chart":
-               oRouter.navTo("chartContainer");
-                break;
+                    oRouter.navTo("chartContainer");
+                    break;
                 case "dataBinding":
-                 oRouter.navTo("dataBinding");
-                break;
+                    oRouter.navTo("dataBinding");
+                    break;
                 case "layout":
-              oRouter.navTo("layout");
-                break;
+                    oRouter.navTo("layout");
+                    break;
                 case "splitContainer":
-                oRouter.navTo("splitContainer");
-                break;
+                    oRouter.navTo("splitContainer");
+                    break;
                 default:
-                sap.m.MessageToast.show("No type is chosen now.");
-                break;
+                    sap.m.MessageToast.show("No type is chosen now.");
+                    sap.ui.core.BusyIndicator.hide();
+                    break;
             }
         }
 

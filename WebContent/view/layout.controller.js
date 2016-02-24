@@ -5,7 +5,7 @@ sap.ui.define([
     'sap/ui/model/json/JSONModel'
 ], function(jQuery, Fragment, Controller, JSONModel) {
     "use strict";
-
+    sap.ui.core.BusyIndicator.hide();
     var PageController = Controller.extend("sap.ui.practice.view.layout", {
 
         onInit: function(oEvent) {
